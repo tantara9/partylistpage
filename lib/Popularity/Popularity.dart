@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'export.dart';
+import '../export.dart';
 
 class PopularityPage extends StatefulWidget {
   PopularityPage({Key key}) : super(key: key);
