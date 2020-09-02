@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:partylist/partydetail/partydetail.dart';
 
 class Partylist extends StatefulWidget {
   Partylist({Key key}) : super(key: key);
@@ -18,13 +19,21 @@ class _PartylistState extends State<Partylist> {
             mockup.length,
             (index) => Center(
                   child: GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  PartyDetail(detail: mockup[index])));
+                    },
                     child: Padding(
                       padding: EdgeInsets.all(13),
                       child: Container(
-                        // decoration:
-                        //     BoxDecoration(borderRadius: BorderRadius.circular(3)),
-                        color: Colors.deepPurple[300],
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.deepPurple[300],
+                        ),
+
                         height: 160,
                         // width: 200,
                         child: Row(
@@ -146,13 +155,17 @@ class Mockup {
   final String popularity;
   final String partylike;
   final String img;
+  final String imgpromote;
+  final String partyowner;
   const Mockup(
       {this.partyname,
       this.partydetail,
       this.partypolicy,
       this.partylike,
       this.popularity,
-      this.img});
+      this.img,
+      this.imgpromote,
+      this.partyowner});
 }
 
 List<Mockup> mockup = const <Mockup>[
@@ -162,33 +175,43 @@ List<Mockup> mockup = const <Mockup>[
       partypolicy: 'testpolicy',
       popularity: '4.5%',
       partylike: '30k',
-      img: 'assets/image/party/1.png'),
+      img: 'assets/image/party/1.png',
+      imgpromote: 'assets/image/partydetail/1.jpg',
+      partyowner: 'พิธา ลิ้มเจริญรัตน์'),
   const Mockup(
       partyname: 'พรรคเพื่อไทย',
       partydetail: 'testdetail',
       partypolicy: 'testpolicy',
       popularity: '4.5%',
       partylike: '30k',
-      img: 'assets/image/party/2.jpg'),
+      img: 'assets/image/party/2.jpg',
+      imgpromote: 'assets/image/partydetail/3.jpg',
+      partyowner: 'ทักษิณ ชินวัตร'),
   const Mockup(
       partyname: 'พรรคพลังประชารัฐ',
       partydetail: 'testdetail',
       partypolicy: 'testpolicy',
       popularity: '4.5%',
       partylike: '30k',
-      img: 'assets/image/party/3.jpg'),
+      img: 'assets/image/party/3.jpg',
+      imgpromote: 'assets/image/partydetail/2.jpg',
+      partyowner: 'ประยุทธ์ จันทร์โอชา'),
   const Mockup(
       partyname: 'พรรคประชาธิปปัตย์',
       partydetail: 'testdetail',
       partypolicy: 'testpolicy',
       popularity: '4.5%',
       partylike: '30k',
-      img: 'assets/image/party/4.jpg'),
+      img: 'assets/image/party/4.jpg',
+      imgpromote: 'assets/image/partydetail/4.jpg',
+      partyowner: 'ควง อภัยวงศ์'),
   const Mockup(
       partyname: 'พรรคเศรษฐกิจใหม่',
       partydetail: 'testdetail',
       partypolicy: 'testpolicy',
       popularity: '4.5%',
       partylike: '30k',
-      img: 'assets/image/party/5.png'),
+      img: 'assets/image/party/5.png',
+      imgpromote: 'assets/image/partydetail/5.jpg',
+      partyowner: 'สุภดิช อากาศฤกษ์'),
 ];
